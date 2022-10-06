@@ -54,6 +54,7 @@ body {
 
 .toast {
     display: flex;
+    position: relative;
     align-items: center;
     color: #fff;
     height: 60px;
@@ -61,6 +62,7 @@ body {
     border: none;
     border-radius: 5px;
     font-size:16px;
+    overflow: hidden;
     overflow: hidden;
     animation: slide_show 2s ease;
     margin-bottom: 10px;
@@ -86,12 +88,13 @@ body {
     margin-right: 10px;
 }
 
-.toast .countdown {
+.countdown {
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
-    animation: countdown 2s ease forwards;
+    height: 4px;
+    animation: countdown 4s linear forwards;
 }
 
 .toast.success .countdown {
@@ -104,33 +107,42 @@ body {
     border-bottom: 3px solid var(--error-color);
 }
 
-
 @keyframes countdown {
     0% {
         width: 100%;
-    }   
+    }
     100% {
         width: 0;
     }
 }
 
 @keyframes slide_show {
-    0% {transform: translateX(100%);}
+    0% {
+        transform: translateX(200%);
+    }
 
-    30%{transform: translateX(-10%);}
+    25% {
+        transform: translateX(-10%);
+    }
+    
+    50% {
+        transform: translateX(-10px);
+    }
 
-    60%{transform: translateX(8px);}
-
-    100%
-    {   
+    100% {
         transform: translateX(0%);
     }
 }
 
 @keyframes slide_hide {
-    0% {transform: translateX(0%);}
-
-    40%{transform: translateX(-10%);}
-
-    100%{transform: translateX(200%);}
+    0% {
+        transform: translateX(0%);
+    }
+    25% {
+        transform: translateX(-10%);
+    }
+    100% {
+        transform: translateX(200%);
+    }
 }
+
